@@ -1,0 +1,141 @@
+/* General Layout */
+.hotspot-list {
+  padding: 20px;
+  background: #0d1b2a;
+  color: #fff;
+  min-height: 100vh;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Title */
+h2 {
+  text-align: center;
+  color: #4dabf7;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+}
+
+/* Input Section */
+.inputs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.inputs input {
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  width: 220px;
+  background: #1b263b;
+  color: #fff;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
+}
+
+/* Buttons */
+.buttons {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.buttons button {
+  margin: 0 10px;
+  padding: 10px 18px;
+  background: #1e6091;
+  border: none;
+  color: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.3s ease;
+}
+
+.buttons button:hover {
+  background: #168aad;
+  transform: translateY(-2px);
+}
+
+/* Result Card */
+.result {
+  background: #1b263b;
+  border-radius: 14px;
+  padding: 25px;
+  margin: 25px auto;
+  width: 85%;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Text Styling */
+.result h3 {
+  color: #4dabf7;
+  margin-bottom: 15px;
+}
+
+.result p {
+  color: #e0e1dd;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* Chart Containers */
+.chart-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.chart-container img {
+  margin-top: 10px;
+  max-width: 400px;
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 0 10px #415a77;
+}
+
+/* Result Section Cards (for Safety Score, Crimes etc.) */
+.result-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-around;
+  align-items: flex-start;
+  margin-top: 20px;
+}
+
+.result-card {
+  background: #1a2235;
+  border-radius: 16px;
+  padding: 20px;
+  flex: 1 1 320px;
+  min-width: 300px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Notes / Tips */
+.note {
+  margin-top: 15px;
+  font-style: italic;
+  color: #adb5bd;
+  text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .inputs input {
+    width: 100%;
+  }
+
+  .result {
+    width: 95%;
+  }
+
+  .chart-container {
+    flex-direction: column;
+  }
+}

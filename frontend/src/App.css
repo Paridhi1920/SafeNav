@@ -1,0 +1,47 @@
+/* Global reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Body background */
+body {
+  background-color: #f4f6f8; 
+  color: #333;
+  line-height: 1.6;
+}
+
+.page-container {
+  padding: 20px;
+  min-height: calc(100vh - 60px); 
+}
+
+/* Links default */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Headings */
+h1, h2, h3 {
+  color: #1e3a8a; /* dark blue */
+  margin-bottom: 15px;
+}
+
+/* Buttons default */
+button {
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  background-color: #1e3a8a; /* dark blue */
+  color: white;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background-color: #2563eb; /* bright blue */
+}
