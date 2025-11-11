@@ -27,12 +27,11 @@
   cursor: pointer;
 }
 
-.map-placeholder {
+.map-container {
   margin-top: 20px;
   height: 350px;
-  background: #415a77;
+  background: #415a77;        /* fallback background before map loads */
   border-radius: 12px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  overflow: hidden;            /* hides overflow edges */
+  border: 2px solid #778da9;   /* optional: nice border tone */
 }
