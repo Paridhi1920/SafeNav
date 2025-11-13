@@ -32,7 +32,8 @@ const SafeRoutePage = () => {
 
                 mapRef.current = new mapboxgl.Map({
                     container: mapContainerRef.current,
-                    style: "mapbox://styles/mapbox/dark-v11", // Dark map style
+                    // *** CHANGED MAP STYLE TO STREETS-V11 (A more balanced, colorful light theme) ***
+                    style: "mapbox://styles/mapbox/streets-v11", // Balanced map style
                     center: [longitude, latitude],
                     zoom: 13,
                 });
@@ -272,6 +273,7 @@ const SafeRoutePage = () => {
                         {/* Map Container - Full height, rounded, shadowed */}
                         <div
                             ref={mapContainerRef}
+                            // *** REVERTED BG: Changed bg-white back to bg-gray-800 for better dark UI integration ***
                             className="w-full bg-gray-800 border border-gray-700 rounded-xl shadow-2xl shadow-black/70"
                             style={{ height: "70vh", minHeight: "500px" }}
                         >
