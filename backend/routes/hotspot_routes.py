@@ -14,5 +14,8 @@ def area_info():
     if not area:
         return jsonify({"error": "Please provide an area name."}), 400
 
+    # Normalize area name (strip whitespace)
+    area = area.strip() if area else ""
+    
     result = get_area_analysis(area)
     return jsonify(result)
