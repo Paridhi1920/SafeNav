@@ -8,12 +8,12 @@ SafeNav is a smart navigation system that analyzes crime data to detect high-ris
 
 ### 🔍 Crime Hotspot Detection
 - Visualizes crime-prone areas on an interactive map.
-- Heatmaps generated using clustering (K-Means / DBSCAN).
+- Heatmaps generated using clustering (DBSCAN).
 - Uses historical and real-time crime data.
 
 ### 🗺️ Safe Route Recommendation
 - Evaluates different navigation routes.
-- Avoids red/high-risk areas and suggests safer alternatives.
+- Avoids high-risk areas and suggests safer routes.
 
 ### 📍 Location-Based Risk Assessment
 - Computes a **Safety Score** based on crime severity.
