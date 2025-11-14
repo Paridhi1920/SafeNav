@@ -256,7 +256,7 @@ const CrimeHotspotPage = () => {
                                             <img 
                                                 src={`data:image/png;base64,${result.bar_chart}`} 
                                                 alt="Bar Chart" 
-                                                className="max-w-full h-auto"
+                                                className="max-w-full h-auto "
                                                 onError={(e) => {
                                                     e.target.style.display = 'none';
                                                     const errorDiv = e.target.parentElement.querySelector('.chart-error');
