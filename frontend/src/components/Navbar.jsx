@@ -29,7 +29,7 @@ const Navbar = () => {
           className="text-2xl font-black text-red-500 cursor-pointer hover:text-red-400 transition flex items-center"
         >
           <Zap className="w-6 h-6 mr-2 text-blue-400" />
-          Safe Map
+          SafeNav
         </Link>
         
         {/* Navigation Links */}

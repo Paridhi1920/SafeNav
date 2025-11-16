@@ -201,7 +201,7 @@ const HomePage = () => {
         <header className="text-center mb-16 relative z-20">
           <div className="flex justify-center items-center mb-4 animate-fadeInSlideUp">
             <Target className="w-12 h-12 text-red-500 mr-3 shadow-lg" />
-            <h1 className="text-6xl sm:text-7xl font-extrabold uppercase">Safe Map</h1>
+            <h1 className="text-6xl sm:text-7xl font-extrabold uppercase">SafeNav</h1>
           </div>
 
           <p className="text-xl sm:text-3xl text-gray-300 mt-4 max-w-4xl mx-auto animate-fadeInSlideUp-delay-1">
@@ -243,7 +243,7 @@ const HomePage = () => {
 
         {/* Footer */}
         <footer className="mt-20 text-center text-gray-500 text-sm border-t border-gray-800 pt-6 w-full max-w-7xl z-20">
-          © 2025 Safe Map. Protecting your journey.
+          © 2025 SafeNav. Protecting your journey.
         </footer>
       </div>
     </>
