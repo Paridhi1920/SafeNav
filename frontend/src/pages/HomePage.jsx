@@ -201,7 +201,7 @@ const HomePage = () => {
         <header className="text-center mb-16 relative z-20">
           <div className="flex justify-center items-center mb-4 animate-fadeInSlideUp">
             <Target className="w-12 h-12 text-red-500 mr-3 shadow-lg" />
-            <h1 className="text-6xl sm:text-7xl font-extrabold uppercase">SafeNav</h1>
+            <h1 className="text-6xl sm:text-7xl font-extrabold uppercase">Safe Map</h1>
           </div>
 
           <p className="text-xl sm:text-3xl text-gray-300 mt-4 max-w-4xl mx-auto animate-fadeInSlideUp-delay-1">
@@ -226,7 +226,7 @@ const HomePage = () => {
         <div className="w-full max-w-7xl z-20 relative">
           <h2 className="text-3xl font-bold text-gray-100 mb-8 text-center md:text-left md:ml-4">System Capabilities</h2>
 
-          <div className="flex overflow-x-scroll pb-4 px-2 space-x-6 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-8 md:space-x-0">
+          <div className="flex overflow-x-scroll md:overflow-x-visible pb-4 px-2 space-x-6 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-8 md:space-x-0">
             {features.map((feature, index) => (
               <AnimatedCardFinal
                 key={index}
@@ -243,7 +243,7 @@ const HomePage = () => {
 
         {/* Footer */}
         <footer className="mt-20 text-center text-gray-500 text-sm border-t border-gray-800 pt-6 w-full max-w-7xl z-20">
-          © 2025 SafeNav. Protecting your journey.
+          © 2025 Safe Map. Protecting your journey.
         </footer>
       </div>
     </>
