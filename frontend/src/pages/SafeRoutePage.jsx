@@ -20,33 +20,79 @@ const SafeRoutePage = () => {
     // Initialize map at user's current location
     useEffect(() => {
         setError(null);
+        
+        // Check if container ref is available
+        if (!mapContainerRef.current) {
+            return;
+        }
+
         if (!navigator.geolocation) {
             setError("Geolocation not supported by your browser. Cannot find your current location.");
             return;
         }
+
+        // Handle resize on window resize
+        const handleResize = () => {
+            if (mapRef.current && mapRef.current.getCanvas()) {
+                try {
+                    mapRef.current.resize();
+                } catch (resizeError) {
+                    console.warn("Map resize error:", resizeError);
+                }
+            }
+        };
 
         navigator.geolocation.getCurrentPosition(
             (pos) => {
                 const { latitude, longitude } = pos.coords;
                 setUserCoords([longitude, latitude]);
 
-                mapRef.current = new mapboxgl.Map({
-                    container: mapContainerRef.current,
-                    // *** CHANGED MAP STYLE TO STREETS-V11 (A more balanced, colorful light theme) ***
-                    style: "mapbox://styles/mapbox/streets-v11", // Balanced map style
-                    center: [longitude, latitude],
-                    zoom: 13,
-                });
+                // Double-check container exists before creating map
+                if (!mapContainerRef.current) {
+                    setError("Map container not available. Please refresh the page.");
+                    return;
+                }
 
-                mapRef.current.on('load', () => {
-                    setIsMapLoaded(true);
-                    mapRef.current.resize();
+                // Check if map already exists to prevent duplicate initialization
+                if (mapRef.current) {
+                    return;
+                }
 
-                    new mapboxgl.Marker({ color: "#3B82F6" }) // Blue marker for start
-                        .setLngLat([longitude, latitude])
-                        .setPopup(new mapboxgl.Popup({ offset: 25 }).setText("Starting Point (You are here)"))
-                        .addTo(mapRef.current);
-                });
+                try {
+                    mapRef.current = new mapboxgl.Map({
+                        container: mapContainerRef.current,
+                        // *** CHANGED MAP STYLE TO STREETS-V11 (A more balanced, colorful light theme) ***
+                        style: "mapbox://styles/mapbox/streets-v11", // Balanced map style
+                        center: [longitude, latitude],
+                        zoom: 13,
+                    });
+
+                    mapRef.current.on('load', () => {
+                        setIsMapLoaded(true);
+                        
+                        // Safely resize the map after a small delay to ensure canvas is ready
+                        setTimeout(() => {
+                            if (mapRef.current && mapRef.current.getCanvas()) {
+                                try {
+                                    mapRef.current.resize();
+                                } catch (resizeError) {
+                                    console.warn("Map resize error:", resizeError);
+                                }
+                            }
+                        }, 100);
+
+                        new mapboxgl.Marker({ color: "#3B82F6" }) // Blue marker for start
+                            .setLngLat([longitude, latitude])
+                            .setPopup(new mapboxgl.Popup({ offset: 25 }).setText("Starting Point (You are here)"))
+                            .addTo(mapRef.current);
+                    });
+
+                    // Add resize listener after map is created
+                    window.addEventListener('resize', handleResize);
+                } catch (mapError) {
+                    console.error("Map initialization error:", mapError);
+                    setError("Failed to initialize map. Please refresh the page.");
+                }
             },
             (err) => {
                 console.error("Location error:", err);
@@ -56,8 +102,14 @@ const SafeRoutePage = () => {
 
         // Cleanup function
         return () => {
+            window.removeEventListener('resize', handleResize);
             if (mapRef.current) {
-                mapRef.current.remove();
+                try {
+                    mapRef.current.remove();
+                } catch (error) {
+                    console.warn("Error removing map:", error);
+                }
+                mapRef.current = null;
             }
         };
     }, []);
