@@ -34,7 +34,7 @@ SafeNav is a smart navigation system that analyzes crime data to detect high-ris
 
 **Backend**
 - Flask (Python)  
-- Pandas, NumPy  
+- Pandas, NumPy, Matplotlib
 - Scikit-learn  
 
 
